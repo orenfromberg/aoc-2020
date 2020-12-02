@@ -1,9 +1,10 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
+use std::vec::Vec;
 
 fn main() {
-    let mut vec = std::vec::Vec::new();
+    let mut vec: Vec<i32> = Vec::new();
 
     // File hosts must exist in current path before this produces output
     if let Ok(lines) = read_lines("./input.txt") {
@@ -21,10 +22,16 @@ fn main() {
             if i == j {
                 continue;
             }
-            if (vec[i] + vec[j]) == 2020 {
-                println!("{} x {} = {}",vec[i],vec[j],vec[i]*vec[j]);
-                break 'outer;
+            for k in 0..vec.len() {
+                if k == j || k ==i {
+                    continue;
+                }
+                if (vec[i] + vec[j] + vec[k]) == 2020 {
+                    println!("{} x {} x {} = {}",vec[i],vec[j],vec[k],vec[i]*vec[j]*vec[k]);
+                    break 'outer;
+                }    
             }
+
         }
     }
 
