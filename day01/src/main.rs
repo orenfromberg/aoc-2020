@@ -2,7 +2,6 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-
 fn main() {
     let mut vec = std::vec::Vec::new();
 
@@ -17,14 +16,14 @@ fn main() {
         }
     }
 
-    for i in 0..vec.len() {
+    'outer: for i in 0..vec.len() {
         for j in 0..vec.len() {
             if i == j {
                 continue;
             }
             if (vec[i] + vec[j]) == 2020 {
                 println!("{} x {} = {}",vec[i],vec[j],vec[i]*vec[j]);
-                break;
+                break 'outer;
             }
         }
     }
