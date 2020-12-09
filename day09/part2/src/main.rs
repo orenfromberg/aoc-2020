@@ -18,7 +18,7 @@ fn main() {
     }
 
     let length = data.len();
-    for win_length in 0..length{
+    for win_length in 2..length{
         let mut j = 0;
         while j + win_length < length {
             let section: &[usize] = &data[j..j+win_length];
