@@ -8,9 +8,9 @@
             "type": "lldb",
             "request": "launch",
             "name": "Launch",
-            "program": "${workspaceRoot}/day08/part1/target/debug/part1",
+            "program": "${workspaceRoot}/day09/part1/target/debug/part1",
             "args": [],
-            "cwd": "${workspaceFolder}/day08/part1"
+            "cwd": "${workspaceFolder}/day09/part1"
         }
     ]
 }
