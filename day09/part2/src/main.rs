@@ -18,21 +18,21 @@ fn main() {
     }
 
     let length = data.len();
-    for win_length in 0..length {
+    for win_length in 0..length{
         let mut j = 0;
         while j + win_length < length {
             let section: &[usize] = &data[j..j+win_length];
             if invalid_num == section.iter().fold(0, |acc, x| acc + x) {
-                let max: usize = section.iter().fold(0, |acc, x| {
-                    if x > &acc {
-                        *x
+                let max: &usize = section.iter().fold(&0, |acc, x| {
+                    if x > acc {
+                        x
                     } else {
                         acc
                     }
                 });
-                let min: usize = section.iter().fold(max, |acc, x| {
-                    if x < &acc {
-                        *x
+                let min: &usize = section.iter().fold(&max, |acc, x| {
+                    if x < acc {
+                        x
                     } else {
                         acc
                     }
