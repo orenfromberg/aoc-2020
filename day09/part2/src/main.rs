@@ -24,8 +24,7 @@ fn main() {
             let section: &[usize] = &data[j..j+win_length];
             if invalid_num == section.iter().fold(0, |acc, x| acc + x) {
                 let max: &usize = section.iter().fold(&0, |acc, x| { if x > acc { x } else { acc }});
-                let min: &usize = section.iter().fold(&max, |acc, x| {
- if x < acc { x } else { acc }});
+                let min: &usize = section.iter().fold(&max, |acc, x| { if x < acc { x } else { acc }});
                 println!("{:?}", section);
                 println!("min = {}", min);
                 println!("max = {}", max);
