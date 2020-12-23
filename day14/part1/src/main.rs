@@ -22,7 +22,7 @@ fn main() {
                     '1' => 2u64.pow(n as u32) + acc,
                     _ => acc,
                 });
-            and_mask = mask
+            and_mask = !mask
                 .chars()
                 .enumerate()
                 .map(|(i, c)| (35 - i, c))
@@ -34,7 +34,7 @@ fn main() {
             let caps = mem_re.captures(&line).unwrap();
             let index: usize = caps.get(1).unwrap().as_str().parse().unwrap();
             let val: u64 = caps.get(2).unwrap().as_str().parse().unwrap();
-            memory.insert(index as u64, (val & !and_mask) | or_mask);
+            memory.insert(index as u64, (val & and_mask) | or_mask);
         }
     }
 
